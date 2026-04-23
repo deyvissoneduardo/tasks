@@ -6,9 +6,9 @@
     "platforms": {
       "dart": {
         "lib/firebase_options.dart": {
-          "projectId": "gto-eccomercce",
+          "projectId": "task-ket",
           "configurations": {
-            "web": "1:523305830565:web:383e8579ba4f968bb1a54c"
+            "web": "1:341110357923:web:b96da6fe78e3ba6a0ba416"
           }
         }
       }

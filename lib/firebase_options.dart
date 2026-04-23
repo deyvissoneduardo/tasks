@@ -53,13 +53,12 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCp6mHrvfAbM024nFWqAigyPKRuLkDTP5E',
-    appId: '1:523305830565:web:383e8579ba4f968bb1a54c',
-    messagingSenderId: '523305830565',
-    projectId: 'gto-eccomercce',
-    authDomain: 'gto-eccomercce.firebaseapp.com',
-    databaseURL: 'https://gto-eccomercce-default-rtdb.firebaseio.com',
-    storageBucket: 'gto-eccomercce.appspot.com',
-    measurementId: 'G-FDS3GPYHGS',
+    apiKey: 'AIzaSyBFxPYF8LpYTnIhPp06aQhWfi4p4myOeF0',
+    appId: '1:341110357923:web:b96da6fe78e3ba6a0ba416',
+    messagingSenderId: '341110357923',
+    projectId: 'task-ket',
+    authDomain: 'task-ket.firebaseapp.com',
+    storageBucket: 'task-ket.firebasestorage.app',
+    measurementId: 'G-K7WQH9N9PT',
   );
 }
