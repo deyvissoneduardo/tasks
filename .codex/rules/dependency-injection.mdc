@@ -1,0 +1,32 @@
+---
+description: Regras de injeção de dependência com Provider.
+globs: ["lib/**", "test/**"]
+---
+
+## Objetivo
+
+- Centralizar a composição de dependências com `provider`.
+- Manter dependências explícitas por construtor e fáceis de substituir em testes.
+
+## Regras
+
+- Registre dependências em `lib/core/di/providers.dart`.
+- Use `Provider` para objetos sem estado reativo, como config, clients, services e repositories.
+- Use `ChangeNotifierProvider` para ViewModels.
+- Passe dependências por construtor; não busque singletons globais dentro das classes.
+- Widgets devem consumir ViewModels e comandos de UI, não criar objetos da camada `data`.
+- Configure ciclo de vida no provider correto, incluindo `dispose` quando a dependência tiver recurso aberto.
+- Mantenha ordem de boot: `AppConfig` -> clients -> services -> repositories -> ViewModels.
+
+## Mocks/ambientes
+
+- Em testes, substitua contratos como `TaskRepository` por fakes simples.
+- Não use chamadas reais de rede em teste unitário ou widget.
+- Para novos ambientes, prefira trocar `AppConfig` na composição de providers.
+
+## Checklist
+
+- Nova dependência foi registrada no composition root.
+- Classe recebe dependências por construtor.
+- Testes conseguem fornecer fake sem mexer em código de produção.
+- Não há instância de service/repository criada em widget.

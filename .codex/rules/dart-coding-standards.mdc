@@ -1,0 +1,37 @@
+---
+description: Padrões de código Dart do projeto.
+alwaysApply: true
+---
+
+## Objetivo
+
+- Manter Dart legível, null-safe, testável e alinhado ao `flutter_lints`.
+- Seguir Effective Dart e o guia oficial de regras Flutter quando aplicável.
+
+## Regras
+
+- Rode `dart format lib test` antes de finalizar mudanças.
+- Rode `flutter analyze` e corrija avisos do analyzer.
+- Use `PascalCase` para classes, `camelCase` para membros e `snake_case` para arquivos.
+- Prefira `const` em widgets, construtores e coleções imutáveis quando possível.
+- Evite `!`; trate nulos com fluxo explícito, `if`, `??` ou early return.
+- Use `async`/`await` com `try/catch` em operações que podem falhar.
+- Prefira funções curtas, nomes descritivos e composição simples.
+- Use imports organizados por SDK, pacotes e relativos; evite imports não usados.
+- Use comentários apenas para explicar decisões ou blocos não óbvios.
+- Use `AppLogger` para logs; não use `print` em código de produção.
+
+## Anti-padrões
+
+- Métodos grandes com múltiplas responsabilidades.
+- Conversões dinâmicas sem validação em fronteiras de dados.
+- Lógica de rede, parsing ou persistência dentro de widgets.
+- Comentários que repetem literalmente o que o código já diz.
+
+## Checklist
+
+- Código formatado com `dart format`.
+- Analyzer sem issues.
+- Nomes claros e consistentes.
+- Null-safety sem `!` desnecessário.
+- Logs passam por `AppLogger`.

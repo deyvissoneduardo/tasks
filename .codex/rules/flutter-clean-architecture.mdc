@@ -1,0 +1,41 @@
+---
+description: Arquitetura Flutter MVVM e separação de camadas do projeto.
+globs: ["lib/**"]
+---
+
+## Objetivo
+
+- Preservar a App Architecture do Flutter com MVVM na UI.
+- Separar responsabilidades entre `ui`, `domain`, `data`, `core`, `config` e `routing`.
+
+## Estrutura por feature
+
+- Views ficam em `lib/ui/<feature>/view`.
+- ViewModels ficam em `lib/ui/<feature>/view_model` e estendem `ChangeNotifier`.
+- Modelos compartilhados ficam em `lib/domain/models`.
+- Contratos de repositório ficam em `lib/data/repositories`.
+- Implementações de repositório e services ficam em `lib/data`.
+- Infraestrutura transversal fica em `lib/core`.
+
+## Direções de dependência
+
+- `view` depende de `view_model`, nunca de `services` ou `Dio`.
+- `view_model` depende de contratos de repositório.
+- `repository_impl` depende de services e adapta dados para uso da aplicação.
+- `service` lida com transporte, endpoints e parsing de resposta.
+- `core` não deve depender de features específicas.
+
+## Anti-padrões
+
+- Instanciar `Dio`, repositories ou services dentro de widgets.
+- Fazer chamadas HTTP em `build()`.
+- Misturar regra de negócio, estado visual e transporte no mesmo arquivo.
+- Criar DTOs ou objetos de API fora da camada `data`.
+
+## Checklist
+
+- A feature tem View e ViewModel separados.
+- ViewModel recebe dependências por construtor.
+- Repository expõe contrato testável.
+- Services não vazam detalhes de transporte para a UI.
+- Erros externos são convertidos para exceções/estados da aplicação.

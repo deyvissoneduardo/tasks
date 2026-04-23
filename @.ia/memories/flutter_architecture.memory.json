@@ -1,0 +1,41 @@
+{
+  "kind": "flutter_setup",
+  "version": 1,
+  "architecture_strategy": "Arquitetura recomendada pelo Flutter",
+  "architecture_reference": "flutter_app_architecture_mvvm",
+  "state_manager": "Provider + ChangeNotifier",
+  "dependency_injection": "Provider",
+  "http_client": "Dio",
+  "routing_strategy": "native_named_routes",
+  "theme_setup": "apenas claro",
+  "entrypoints_strategy": "apenas main.dart",
+  "quality_tools": "analysis_options.yaml",
+  "test_setup": "unitarios, widget",
+  "extras": "logger, tratamento de erros",
+  "architecture": {
+    "layers": ["ui", "domain", "data", "config", "utils", "routing"],
+    "ui": {
+      "pattern": "MVVM",
+      "view_model_pattern": "ChangeNotifier + Provider",
+      "themes_path": "lib/ui/core/themes"
+    },
+    "di": {
+      "init_path": "lib/core/di/providers.dart",
+      "strategy": "Provider"
+    },
+    "network": {
+      "client": "Dio",
+      "config_path": "lib/core/network/dio_client.dart"
+    },
+    "routing": {
+      "strategy": "native_named_routes",
+      "files": ["lib/routing/route_names.dart", "lib/routing/app_router.dart"]
+    },
+    "config": {
+      "app_config_path": "lib/config/app_config.dart",
+      "environments": ["main.dart"]
+    }
+  },
+  "notes": "Single entrypoint app using native named routes without guards. Provider is both the dependency injection mechanism and the state-management bridge for ChangeNotifier ViewModels. The initial HTTP client is centralized in DioClient and uses a simple debug logger. AppException is the initial error contract exposed to ViewModels.",
+  "generated_at": "2026-04-23T10:08:59-03:00"
+}

@@ -1,0 +1,33 @@
+---
+description: Regras de estado com Provider e ChangeNotifier.
+globs: ["lib/ui/**", "test/ui/**"]
+---
+
+## Objetivo
+
+- Padronizar estado de tela com `Provider + ChangeNotifier`.
+- Manter Views declarativas e ViewModels responsáveis por estado, ações e erros.
+
+## Regras
+
+- Cada ViewModel deve expor estado por getters imutáveis.
+- Use campos privados mutáveis dentro do ViewModel e listas públicas não modificáveis quando necessário.
+- Modele fluxos assíncronos com `isLoading`, `errorMessage` e dados de sucesso.
+- Chame `notifyListeners()` somente quando o estado observável mudar.
+- Use `context.watch<T>()` quando a View precisa reconstruir e `context.read<T>()` para ações pontuais.
+- Extraia widgets menores quando uma View crescer ou tiver estados visuais distintos.
+- Trate side effects fora de `build()`; use callbacks, métodos do ViewModel ou lifecycle adequado.
+
+## Anti-padrões
+
+- Chamar HTTP diretamente da View.
+- Fazer `notifyListeners()` dentro de loops sem necessidade.
+- Expor setters públicos para estado interno do ViewModel.
+- Guardar `BuildContext` dentro de ViewModel.
+
+## Checklist
+
+- ViewModel tem testes unitários para loading, sucesso e erro.
+- View não conhece repositories/services.
+- Estado público é claro e suficiente para a View.
+- Rebuilds usam `watch`, `read` ou `Consumer` de forma intencional.

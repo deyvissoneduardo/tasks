@@ -1,0 +1,35 @@
+---
+description: Padrões de testes unitários e de widget.
+globs: ["test/**"]
+---
+
+## Objetivo
+
+- Garantir testes rápidos para ViewModels, widgets e contratos de camada.
+- Evitar dependência de rede, relógio real ou serviços externos em testes automatizados.
+
+## Regras
+
+- Use `flutter test` para validar a suíte local.
+- Crie testes unitários para ViewModels e regras de estado.
+- Crie testes de widget para telas e componentes com comportamento visível.
+- Use fakes manuais para contratos pequenos, como repositories.
+- Não faça chamadas reais via `Dio` em testes unitários ou widget.
+- Teste estados principais: loading, sucesso, vazio e erro.
+- Espelhe o caminho de `lib` em `test` para facilitar localização.
+- Golden tests só devem ser adicionados quando houver design visual estável.
+- Integration tests só devem ser adicionados quando houver fluxo real de usuário para validar.
+
+## Anti-padrões
+
+- Teste que depende de backend externo.
+- `pumpAndSettle` sem motivo em animações infinitas ou telas com timers.
+- Teste que valida detalhe interno em vez de comportamento observável.
+- Mocks complexos quando um fake simples resolver.
+
+## Checklist
+
+- Teste novo roda com `flutter test`.
+- Fakes substituem dependências externas.
+- Estados de erro e sucesso estão cobertos.
+- Widget test monta providers necessários explicitamente.

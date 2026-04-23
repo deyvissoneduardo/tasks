@@ -1,0 +1,32 @@
+---
+description: Padrões de commits, PRs e idioma do projeto.
+alwaysApply: true
+---
+
+## Objetivo
+
+- Manter histórico claro, semântico e em pt-BR.
+- Padronizar comunicação de mudanças técnicas.
+
+## Padrões
+
+- Use commits semânticos: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`.
+- Escreva título curto em pt-BR, no imperativo ou forma objetiva.
+- Use corpo quando precisar explicar contexto, trade-off ou motivo.
+- Referencie issues/PRs quando existirem.
+- PR deve ter título semântico, descrição do que mudou, validação executada e riscos.
+- Labels devem refletir tipo de mudança, área e prioridade quando disponíveis.
+
+## Exemplos curtos
+
+- `feat: adiciona ViewModel de tarefas`
+- `fix: trata erro ao carregar tarefas`
+- `test: cobre estados do HomeViewModel`
+- `docs: registra decisões de arquitetura Flutter`
+
+## Checklist
+
+- Título explica a mudança.
+- Corpo explica o porquê quando necessário.
+- Validação local foi citada no PR.
+- Texto está em pt-BR.

@@ -1,0 +1,31 @@
+---
+description: Regras de tema claro e componentes visuais.
+globs: ["lib/ui/**"]
+---
+
+## Objetivo
+
+- Manter tema e decisões visuais centralizados em `lib/ui/core/themes`.
+- Evitar estilos soltos e inconsistentes nas telas.
+
+## Regras
+
+- Use `AppTheme.light` como fonte de `ThemeData`.
+- Prefira cores de `Theme.of(context).colorScheme`.
+- Não espalhe cores fixas em widgets sem justificativa.
+- Use componentes Material 3 e propriedades do tema antes de criar estilos locais.
+- Extraia widgets reutilizáveis quando um padrão visual aparecer em mais de uma tela.
+- Mantenha suporte apenas a tema claro até nova decisão arquitetural.
+
+## Anti-padrões
+
+- Definir `ThemeData` fora de `AppTheme`.
+- Usar valores mágicos de cor para estados comuns.
+- Criar componentes visuais com comportamento duplicado.
+
+## Checklist
+
+- Cor vem do tema ou tem justificativa local.
+- Novo componente respeita Material 3.
+- Alteração visual não quebra legibilidade em tema claro.
+- Estilo comum foi centralizado quando reutilizado.

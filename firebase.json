@@ -1,0 +1,17 @@
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "flutter": {
+    "platforms": {
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "gto-eccomercce",
+          "configurations": {
+            "web": "1:523305830565:web:383e8579ba4f968bb1a54c"
+          }
+        }
+      }
+    }
+  }
+}

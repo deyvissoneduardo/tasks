@@ -1,0 +1,37 @@
+---
+description: Estrutura de pastas e convenções de arquivos do projeto Flutter.
+globs: ["lib/**", "test/**", "web/**"]
+---
+
+## Objetivo
+
+- Manter uma estrutura previsível para evoluir o app por features e camadas.
+- Facilitar navegação, testes e aplicação consistente do padrão MVVM.
+
+## Regras
+
+- `lib/main.dart` deve ser fino e iniciar `TasksApp`.
+- `lib/app.dart` configura `MaterialApp`, tema, rotas e providers.
+- `lib/config` guarda configurações de app e ambiente.
+- `lib/core` guarda DI, network, logging, errors e utilidades transversais.
+- `lib/domain` guarda modelos e regras compartilhadas independentes de UI.
+- `lib/data` guarda repositories, services e adaptações externas.
+- `lib/ui/<feature>/view` guarda widgets de tela.
+- `lib/ui/<feature>/view_model` guarda ViewModels.
+- `lib/routing` guarda nomes de rotas e `AppRouter`.
+- Espelhe a estrutura de `lib` dentro de `test` quando criar testes.
+- Use arquivos em `snake_case`, como `home_view.dart` e `home_view_model.dart`.
+
+## Exemplos curtos
+
+- Nova tela: `lib/ui/profile/view/profile_view.dart`.
+- Novo estado: `lib/ui/profile/view_model/profile_view_model.dart`.
+- Novo endpoint: `lib/data/services/profile_api_service.dart`.
+- Novo contrato: `lib/data/repositories/profile_repository.dart`.
+
+## Checklist
+
+- Arquivo novo está na camada correta.
+- Nome do arquivo indica papel e feature.
+- Teste fica em caminho equivalente dentro de `test`.
+- Não há pasta nova sobrepondo responsabilidade já existente.
